@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Practice</title>
+    <style>
+        /* CSS styles for the game */
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+        }
+
+        .coins-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Center vertically */
+            padding: 20px; /* Add padding for space */
+            box-sizing: border-box; /* Include padding in total width */
+        }
+
+        .coins-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coin-img {
+            width: 150px; /* Increased size */
+            height: auto;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        #scoreDisplay {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 36px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Importing arcade-like font -->
+</head>
+<body>
+<div class="coins-wrapper">
+    <h1>Game Practice</h1>
+    <div class="coins-container">
+        <div id="scoreDisplay">SCORE: 0</div>
+        <div class="coins-container">
+            <img src="./blue.png" class="coin-img coin blue-coin" data-points="10" />
+            <img src="./orange.png" class="coin-img coin orange-coin" data-points="5" />
+            <img src="./yellow.png" class="coin-img coin yellow-coin" data-points="2" />
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript code for the game
+    const coins = document.querySelectorAll('.coin');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    let score = 0;
+    let trialCount = 0;
+    const maxTrials = 10; // Maximum number of trials
+
+    coins.forEach(coin => {
+        coin.addEventListener('click', () => {
+            const points = parseInt(coin.dataset.points);
+            score += points;
+            scoreDisplay.textContent = `SCORE: ${score}`;
+
+            trialCount++;
+            if (trialCount >= maxTrials) {
+                // Redirect to the actual game page
+                window.location.href = 'game_instructions.html';
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent and Instructions</title>
+    <style>
+        /* Center the content vertically and horizontally */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style for the consent container */
+        .consent-container, .instructions-container {
+            text-align: center;
+            font-family: Arial, sans-serif; /* Default font */
+        }
+
+        /* Style for the consent title */
+        .consent-title {
+            color: #0000FF; /* Dark blue color */
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the consent text */
+        .consent-text, .instructions-text {
+            font-size: 18px;
+            color: #000000; /* Black color */
+            margin-bottom: 20px;
+        }
+
+        /* Style for the consent button */
+        .consent-button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #ffcc00; /* Yellow color */
+            color: #000000; /* Black color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Change button color on hover */
+        .consent-button:hover {
+            background-color: #ffffff; /* White color */
+            color: #ffcc00; /* Yellow color */
+        }
+
+        /* Style for the coins container */
+        .coins-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+
+        /* Style for the coin images */
+        .coin-img {
+            width: 100px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* CSS for consent list */
+        .consent-list {
+            text-align: center; /* Center the list */
+            list-style-type: none; /* Remove default list style */
+            padding: 0;
+        }
+
+        /* CSS for left-aligning list items */
+        .consent-list li {
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Consent form content -->
+<div class="consent-container" id="consentSection">
+    <h1 class="consent-title">Consent Form</h1>
+    <ul class="consent-list">
+        <li class="consent-text right-align">Greetings !</li>
+        <li class="consent-text right-align">As a participant in this game, your involvement will remain completely <strong>anonymous</strong>.</li>
+        <li class="consent-text right-align">The information gathered from your responses will be used for research purposes only.</li>
+        <li class="consent-text right-align">There are no anticipated risks associated with your participation in this study.</li>
+        <li class="consent-text right-align">Completing the game is expected to take approximately <strong>20 minutes</strong> of your time.</li>
+        <li class="consent-text right-align">Your participation is entirely voluntary. You have the right to decline participation without facing any consequences.</li>
+        <li class="consent-text right-align">Should you decide not to proceed at any point, you can simply exit the survey.</li>
+        <li class="consent-text right-align">You may play the game only if you are <strong>older than 18</strong>.</li>
+    </ul>
+    <!-- Button to proceed to the instructions -->
+    <button class="consent-button" id="consentButton">I Agree</button>
+</div>
+
+<!-- Instructions page 1 content -->
+<div class="instructions-container" id="instructionsPage1" style="display: none;">
+    <h2>Instructions</h2>
+    <p class="instructions-text">In this game, you will participate <strong> in five rounds </strong>, and each round consists of <strong> 10 trials </strong>.</p>
+    <p class="instructions-text">During each trial, you will encounter three coins: <span style="color: blue;">blue</span>, <span style="color: orange;">orange</span>, or <span style="color: yellow;">yellow</span>.</p>
+    <p class="instructions-text">You have to click on a coin of your choice upon each trial.</p>
+    <p class="instructions-text">Each coin represents a chance to win an amount of money in dirhams.</p>
+    <div class="coins-container">
+        <img src="./blue.png" class="coin-img" />
+        <img src="./orange.png" class="coin-img" />
+        <img src="./yellow.png" class="coin-img" />
+    </div>
+    <button class="consent-button" id="nextButtonPage1">Next</button>
+</div>
+
+<!-- Instructions page 2 content -->
+<div class="instructions-container" id="instructionsPage2" style="display: none;">
+    <h2>Round Structure:</h2>
+    <p class="instructions-text"><strong>Trials:</strong> Each round consists of <strong>10 trials</strong>.</p>
+    <p class="instructions-text"><strong>Coins:</strong> You will have to choose between three coins: <span style="color: blue;">blue</span>, <span style="color: orange;">orange</span>, or <span style="color: yellow;">yellow</span>.</p>
+    <p class="instructions-text"><strong>Winning:</strong> Each coin has a potential win associated with it (either 2dh, 5dh or 10dh).</p>
+    <h2>Tax Payment:</h2>
+    <p class="instructions-text">At the end of each round, you are required to pay a <strong>20% tax on your earnings</strong>.</p>
+    <p class="instructions-text"><strong>However</strong>, there's an option to skip paying the tax and move to the next round directly.</p>
+    <h2>Auditing Process:</h2>
+    <p class="instructions-text">It's important to note that at the end of each round, <strong> one out of every 8 participants </strong> will be randomly selected for an audit.</p>
+    <p class="instructions-text">If you choose not to pay the tax and get audited, you will proceed to the next round with <strong> 0 dirhams </strong> in your account, and your earnings will start from scratch.</p>
+    <button class="consent-button" id="previousButtonPage2">Previous</button>
+    <button class="consent-button" id="nextButtonPage2">Next</button>
+</div>
+
+<!-- Instructions page 3 content -->
+<div class="instructions-container" id="instructionsPage3" style="display: none;">
+    <h2>Consequences of Not Paying Tax:</h2>
+    <p class="instructions-text">If you're audited and didn't pay the tax, you'll proceed to the next round with <strong> 0 dirhams </strong>.</p>
+    <p class="instructions-text">If you're not audited, your decision regarding tax payment will not be checked. </p>
+    <p class="instructions-text">You'll simply continue to the next round with the total sum of money you earned in the round. </p>
+    <h2>Money Accumulation:</h2>
+    <p class="instructions-text">The money you accumulate during the five rounds will be credited to <strong> your NAPS card</strong>.</p>
+    <p class="instructions-text">For instance, if your score at the end of the game is 100, <strong> 100 dirhams will be sent to your NAPS account </strong>.</p>
+    <button class="consent-button" id="previousButtonPage3">Previous</button>
+    <button class="consent-button" id="finishButton">I understood the instructions !</button>
+</div>
+
+<script>
+    // Get references to elements
+    const consentSection = document.getElementById('consentSection');
+    const instructionsPage1 = document.getElementById('instructionsPage1');
+    const instructionsPage2 = document.getElementById('instructionsPage2');
+    const instructionsPage3 = document.getElementById('instructionsPage3');
+
+    // Get references to buttons
+    const consentButton = document.getElementById('consentButton');
+    const nextButtonPage1 = document.getElementById('nextButtonPage1');
+    const nextButtonPage2 = document.getElementById('nextButtonPage2');
+    const previousButtonPage2 = document.getElementById('previousButtonPage2');
+    const previousButtonPage3 = document.getElementById('previousButtonPage3');
+    const finishButton = document.getElementById('finishButton');
+
+    // Add event listeners
+    consentButton.addEventListener('click', function() {
+        // Hide consent section and show first instructions page
+        consentSection.style.display = 'none';
+        instructionsPage1.style.display = 'block';
+    });
+
+    nextButtonPage1.addEventListener('click', function() {
+        // Hide first instructions page and show second instructions page
+        instructionsPage1.style.display = 'none';
+        instructionsPage2.style.display = 'block';
+    });
+
+    nextButtonPage2.addEventListener('click', function() {
+        // Hide second instructions page and show third instructions page
+        instructionsPage2.style.display = 'none';
+        instructionsPage3.style.display = 'block';
+    });
+
+    previousButtonPage2.addEventListener('click', function() {
+        // Hide second instructions page and show first instructions page
+        instructionsPage2.style.display = 'none';
+        instructionsPage1.style.display = 'block';
+    });
+
+    previousButtonPage3.addEventListener('click', function() {
+        // Hide third instructions page and show second instructions page
+        instructionsPage3.style.display = 'none';
+        instructionsPage2.style.display = 'block';
+    });
+
+    finishButton.addEventListener('click', function() {
+        // Redirect to the game practice page
+        window.location.href = 'game_practice.html';
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

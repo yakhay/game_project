@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Page</title>
+    <style>
+        /* Center the content vertically and horizontally */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Style for the welcome text */
+        #endText {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: black; /* Black color */
+            font-family: 'Press Start 2P', cursive; /* Arcade-style font */
+        }
+
+        /* Style for the score number */
+        #score {
+            color: #ffcc00; /* Orange color */
+        }
+    </style>
+    <!-- Link to Google Fonts for the arcade-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Your HTML content -->
+<div id="endText">
+    <div>The End. <br>
+        <br>
+
+        <div>Congratulations, your total score is:</div>
+        <br>
+    <div id="score"></div>
+        <br>
+    <div>Please call the experimenter present in the room to show them your final score, and get your money!</div>
+        <br>
+    <div>Thank you for playing THE GAME!</div>
+</div>
+
+<!-- Your JavaScript code to display the final score -->
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = parseFloat(urlParams.get('score')).toFixed(2);
+    document.getElementById('score').textContent = score;
+</script>
+</body>
+</html>
+
+
+

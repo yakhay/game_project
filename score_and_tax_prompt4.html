@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score and Tax Prompt</title>
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Align items in a column */
+        }
+
+        #scoreDisplay {
+            font-size: 24px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+        }
+
+        .tax-prompt {
+            font-size: 18px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+        }
+
+        .tax-buttons {
+            margin-top: 20px; /* Adjust top margin */
+        }
+
+        .tax-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .tax-button:hover {
+            background-color: #ffffff;
+            color: #ffcc00;
+        }
+
+        #endButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #endButton:hover {
+            background-color: #ffffff;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+<div id="scoreDisplay">
+    <div>Your total sum gained during the five rounds is:</div>
+    <div id="score"></div>
+</div>
+
+<div id="endButton" onclick="goToEnd()">The End</div>
+
+<script>
+    // JavaScript code for handling tax payment and navigating to the final page
+    const urlParams = new URLSearchParams(window.location.search);
+    let score = parseFloat(urlParams.get('score'));
+    document.getElementById('score').textContent = score.toFixed(2);
+
+    function goToEnd() {
+        window.location.href = `final_page.html?score=${score.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score and Tax Prompt</title>
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Align items in a column */
+        }
+
+        #scoreDisplay {
+            font-size: 24px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+        }
+
+        .tax-prompt {
+            font-size: 18px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+        }
+
+        .tax-buttons {
+            margin-top: 20px; /* Adjust top margin */
+        }
+
+        .tax-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .tax-button:hover {
+            background-color: #ffffff;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+<div id="scoreDisplay">
+    <div>Your total sum gained during the third round is:</div>
+    <div id="score"></div>
+</div>
+
+<div class="tax-prompt">
+    Would you like to pay the <strong>20% tax</strong>?
+</div>
+
+<div class="tax-buttons">
+    <button class="tax-button" onclick="payTax()">Yes</button>
+    <button class="tax-button" onclick="proceedWithoutTax()">No</button>
+</div>
+
+<script>
+    // JavaScript code for handling tax payment
+    const urlParams = new URLSearchParams(window.location.search);
+    let score = parseFloat(urlParams.get('score'));
+    document.getElementById('score').textContent = score;
+
+    function payTax() {
+        score *= 0.8; // Apply 20% tax
+        window.location.href = `score_updated2.html?score=${score.toFixed(2)}&taxPaid=true`;
+    }
+
+    function proceedWithoutTax() {
+        window.location.href = `score_updated2.html?score=${score.toFixed(2)}&taxPaid=false`;
+    }
+
+</script>
+</body>
+</html>

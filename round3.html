@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round 3</title>
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        #roundDisplay {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+        }
+
+        #scoreDisplay {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+        }
+
+        /* CSS styles for the game */
+        .coins-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Center vertically */
+            padding: 20px; /* Add padding for space */
+            box-sizing: border-box; /* Include padding in total width */
+        }
+
+        .coins-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coin-img {
+            width: 150px; /* Adjust size */
+            height: auto;
+            margin: 0 20px; /* Adjust margin */
+            cursor: pointer;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Importing arcade-like font -->
+</head>
+<body>
+<div id="roundDisplay">Round: 3</div>
+<div id="scoreDisplay">SCORE: <?php echo number_format($_GET['score'], 2); ?></div>
+
+<!-- Game content -->
+<div class="coins-wrapper"> <!-- Changed class to "coins-wrapper" -->
+    <div class="coins-container"> <!-- Centering the coins -->
+        <img src="./blue.png" class="coin-img coin blue-coin" data-points="10" />
+        <img src="./orange.png" class="coin-img coin orange-coin" data-points="5" />
+        <img src="./yellow.png" class="coin-img coin yellow-coin" data-points="2" />
+    </div>
+</div>
+
+<script>
+    // JavaScript code for the game
+    const urlParams = new URLSearchParams(window.location.search);
+    let score = parseFloat(urlParams.get('score')); // Get the updated score from URL parameters
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    scoreDisplay.textContent = `SCORE: ${score.toFixed(2)}`;
+
+    const coins = document.querySelectorAll('.coin');
+    let trials = 0;
+
+    coins.forEach(coin => {
+        coin.addEventListener('click', () => {
+            const points = parseInt(coin.dataset.points);
+            score += points;
+            scoreDisplay.textContent = `SCORE: ${score.toFixed(2)}`;
+            simulateTrial(); // Call simulateTrial after each click
+        });
+    });
+
+    // Function to simulate a game trial
+    function simulateTrial() {
+        trials++;
+        console.log(`Trial ${trials} - Score: ${score.toFixed(2)}`);
+        if (trials >= 10) {
+            console.log("Reached 10 trials.");
+            showTaxPrompt();
+        }
+    }
+
+    // Function to display tax payment prompt
+    function showTaxPrompt() {
+        // Redirect to the page showing the score and tax prompt
+        window.location.href = `score_and_tax_prompt2.html?score=${score}`;
+    }
+</script>
+
+</body>
+</html>

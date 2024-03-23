@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Updated</title>
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Align items in a column */
+        }
+
+        #scoreDisplay {
+            font-size: 24px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+        }
+
+        #score {
+            font-size: 18px;
+            margin-bottom: 20px; /* Adjust bottom margin */
+            font-weight: bold;
+        }
+
+        .audit-button, .continue-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .audit-button:hover, .continue-button:hover {
+            background-color: #ffffff;
+            color: #ffcc00;
+        }
+
+        #auditMessage {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="page1">
+    <div id="scoreDisplay">
+        <div>Your updated score after tax payment is:</div>
+        <div id="score"></div><br>
+        <div>Now, we will run an audit check:</div>
+    </div>
+
+    <button class="audit-button" onclick="checkAudit()">Check Audit</button>
+</div>
+
+<div id="page2" style="display: none;">
+    <div id="auditMessage">Congratulations! We have run an audit check and you were not audited.</div>
+    <button class="continue-button" onclick="continueToNextRound()">Continue to Next Round</button>
+</div>
+
+<script>
+    // JavaScript code to handle audit check
+    function checkAudit() {
+        document.getElementById('page1').style.display = 'none'; // Hide Page One
+        document.getElementById('page2').style.display = 'block'; // Show Page Two
+    }
+
+    // JavaScript code to continue to next round
+    function continueToNextRound() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = parseFloat(urlParams.get('score')).toFixed(2);
+        // Redirect to the next round or perform other actions
+        // For example, redirect to the same page with updated score for the next round
+        window.location.href = `round2.html?score=${score}`;
+    }
+
+    // JavaScript code to display the updated score message
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = parseFloat(urlParams.get('score')).toFixed(2);
+
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent = score;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

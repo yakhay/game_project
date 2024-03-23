@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My experiment</title>
+  <style>
+    /* Center the content vertically and horizontally */
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Style for the welcome text */
+    #welcomeText {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffcc00; /* Yellow color */
+      font-family: 'Press Start 2P', cursive; /* Arcade-style font */
+    }
+    /* Style for the button */
+    #startButton {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #ffcc00; /* Yellow color */
+      color: #000000; /* Black color */
+      border: none;
+      border-radius: 5px;
+      font-family: 'Press Start 2P', cursive; /* Arcade-style font */
+      cursor: pointer;
+    }
+    /* Change button color on hover */
+    #startButton:hover {
+      background-color: #ffffff; /* White color */
+      color: #ffcc00; /* Yellow color */
+    }
+  </style>
+  <script src="jspsych/dist/jspsych.js"></script>
+  <script src="jspsych/dist/plugin-html-button-response.js"></script>
+  <script src="jspsych/dist/plugin-instructions.js"></script> <!-- Include plugin-instructions.js -->
+  <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+  <!-- Link to Google Fonts for the arcade-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Your HTML content -->
+<div id="welcomeText">Welcome to the Tax Game !</div>
+<button id="startButton">Play</button>
+<!-- Your JavaScript code -->
+<script>
+  document.getElementById('startButton').addEventListener('click', function() {
+    // Redirect to instructions page
+    window.location.href = 'instructions.html';
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

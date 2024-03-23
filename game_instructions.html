@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Instructions</title>
+    <style>
+        /* CSS styles for the page */
+        /* Add your styling here */
+        /* Example: */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Make the body fill the viewport height */
+            margin: 0;
+        }
+
+        .instruction-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #readyButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #readyButton:hover {
+            background-color: #ffffff;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+<h2>Game Instructions</h2>
+<p class="instruction-text"><strong>Great!</strong></p>
+<p class="instruction-text">The game practice is over. We hope that you noticed the value of points dedicated for each coin!</p>
+<p class="instruction-text"><strong>Now</strong>, you will start the actual game :)</p>
+<p class="instruction-text">Remember that there will be <strong>5 rounds and each round consists of 10 trials</strong>.</p>
+<p class="instruction-text">Are you ready?</p>
+<button id="readyButton">Ready</button>
+
+<script>
+    const readyButton = document.getElementById('readyButton');
+
+    readyButton.addEventListener('click', function() {
+        // Redirect to the actual game page
+        window.location.href = 'tax game.html';
+    });
+</script>
+</body>
+</html>
+
